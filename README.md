@@ -1,7 +1,7 @@
 # Jenkins Pipeline实战：基于全开源工具链设计交付流水线
 
 ## 第一课 Jenkins Pipeline综述
-    <br/>目标：掌握持续集成/持续交付/devops的整体知识体系，了解jenkins2.0特点并进行入门实践\<br> 
+    目标：掌握持续集成/持续交付/devops的整体知识体系，了解jenkins2.0特点并进行入门实践 
     1.持续集成/持续交付概述 
     2.Jenkins pipeline入门 
 ## 第二课 Pipeline语法详解
