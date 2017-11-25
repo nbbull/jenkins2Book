@@ -14,7 +14,11 @@
 
 所有有效的Declarative Pipeline必须包含在一个pipeline块内，例如：
 
-![](/assets/import.png)
+```groovy
+pipeline { 
+/* insert Declarative Pipeline here */ 
+	}
+```
 
 Declarative Pipeline遵循与Groovy相同的语法规则，但有以下几点例外：
 
@@ -66,7 +70,14 @@ agent { node { label 'labelName' } }，等同于 agent { label 'labelName' }，�
 
 例如：agent { docker 'maven:3-alpine' }或
 
-![](/assets/import2.png)
+```groovy
+agent {
+    docker {
+        image 'maven:3-alpine'
+        label 'my-defined-label'
+        args  '-v /tmp:/tmp'
+    }
+```
 
 **dockerfile**
 
@@ -89,18 +100,60 @@ string字符串。标记在哪里运行pipeline或stage
 
 string字符串。自定义运行的工作空间,它可以是相对路径，在这种情况下，自定义工作区将位于node节点工作空间的根目录下，也可以是绝对路径。例如：
 
-![](/assets/import3.png)
+```groovy
+agent {
+    node {
+        label 'my-defined-label'
+        customWorkspace '/some/other/path'
+    }
+}
+```
 
 **reuseNode**  
 一个布尔值，默认为false。如果为true，则在同一工作空间中，此选项适用于docker和dockerfile，并且仅在独立stage中使用agent时才有效。
 
 ##### 样例
 
-![](/assets/import4.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent { docker 'maven:3-alpine' } ①
+    stages {
+        stage('Example Build') {
+            steps {
+                sh 'mvn -B clean verify'
+            }
+        }
+    }
+}
+
+```
 
 **①**使用‘maven:3-alpine’的镜像创建容器，执行pipeline的所有步骤。
 
-![](/assets/import5.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent none ①
+    stages {
+        stage('Example Build') {
+            agent { docker 'maven:3-alpine' } ②
+            steps {
+                echo 'Hello, Maven'
+                sh 'mvn --version'
+            }
+        }
+        stage('Example Test') {
+            agent { docker 'openjdk:8-jre' } ③
+            steps {
+                echo 'Hello, JDK'
+                sh 'java -version'
+            }
+        }
+    }
+}
+
+```
 
 **①**agent none在Pipeline顶层定义，表示将不会为整个Pipeline运行分配全局agent，每个stage需自己设置agent。
 
@@ -145,7 +198,24 @@ string字符串。自定义运行的工作空间,它可以是相对路径，在�
 
 ##### 样例
 
-![](/assets/import6.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+    post { ①
+        always { ②
+            echo 'I will always say Hello again!'
+        }
+    }
+}
+```
 
 ①post章节通常会放在pipeline末端。
 
@@ -162,7 +232,20 @@ string字符串。自定义运行的工作空间,它可以是相对路径，在�
 
 ##### 样例
 
-![](/assets/import7.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    stages { ①
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+
+```
 
 **①**stages章节通常跟随在agent,options等指令后面。
 
@@ -177,7 +260,20 @@ steps包含一个或多个在stage块中执行的step序列。
 
 ##### 样例
 
-![](/assets/import8.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    stages { 
+        stage('Example') {
+            steps {①
+                echo 'Hello World'
+            }
+        }
+    }
+}
+
+```
 
 **① steps章节必须包括一个或多个step。**
 
@@ -198,7 +294,27 @@ environment指令指定一系列键值对，这些键值对将被定义为所有
 
 ##### 样例
 
-![](/assets/import9.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+environment
+pipeline {
+    agent any
+    environment { ①
+        CC = 'clang'
+    }
+    stages {
+        stage('Example') {
+            environment { ②
+                AN_ACCESS_KEY = credentials('my-prefined-secret-text') ③
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
+    }
+}
+
+```
 
 **①**environment指令放在pipeline顶级块中，将适用pipeline所有步骤。
 
@@ -260,7 +376,22 @@ options {timestamps\(\)}
 
 ##### 样例
 
-![](/assets/import11.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    options { 
+        timeout(time: 1, unit: 'HOURS') ①
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+```
 
 **①**设置pipeline全局的超时时间为1小时，超时后将会自动终止pipeline运行。
 
@@ -279,19 +410,42 @@ parameters指令提供用户在触发Pipeline时的参数列表。这些参数�
 
 string类型的参数, 例如:
 
-![](/assets/import12.png)
+```groovy
+parameters { 
+string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '')
+ }
+```
 
 **booleanParam**
 
 boolean类型的参数, 例如:
 
-![](/assets/import13.png)
+```groovy
+parameters {
+ booleanParam(name: 'DEBUG_BUILD', defaultValue: true, description: '') 
+}
+```
 
 截至发稿，Jenkins社区目前已支持\[booleanParam, choice, credentials, file, text, password, run, string\]这几种参数类型，其他高级参数化类型也在陆续完善中。
 
 ##### 样例
 
-![](/assets/import14.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo "Hello ${params.PERSON}"
+            }
+        }
+    }
+}
+```
 
 #### triggers
 
@@ -317,7 +471,22 @@ triggers {cron\('H 4/\* 0 0 1-5'\)}
 
 ##### 样例
 
-##### ![](/assets/import15.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    triggers {
+        cron('H 4/* 0 0 1-5')
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+```
 
 #### stage
 
@@ -330,7 +499,19 @@ stage指令包含在stages中，包含step、agent（可选）或其他特定包
 
 ##### 样例
 
-##### ![](/assets/import17.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+```
 
 #### tools
 
@@ -351,7 +532,23 @@ gradle
 
 ##### 样例
 
-##### ![](/assets/import19.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    tools {
+        maven 'apache-maven-3.0.1' ①
+    }
+    stages {
+        stage('Example') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
+    }
+}
+
+```
 
 **①**调用的tool必须被预置在Jenkins中，可通过**Manage Jenkins**→**Global Tool Configuration配置。**
 
@@ -394,9 +591,54 @@ when指令允许Pipeline根据给定的条件确定是否执行该阶段。when�
 
 ##### 样例
 
-##### ![](/assets/import22.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    stages {
+        stage('Example Build') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Example Deploy') {
+            when {
+                branch 'production'
+            }
+            steps {
+                echo 'Deploying'
+            }
+        }
+    }
+}
 
-![](/assets/import21.png)
+```
+
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    stages {
+        stage('Example Build') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Example Deploy') {
+            when {
+                expression { BRANCH_NAME ==~ /(production|staging)/ }
+                anyOf {
+                    environment name: 'DEPLOY_TO', value: 'production'
+                    environment name: 'DEPLOY_TO', value: 'staging'
+                }
+            }
+            steps {
+                echo 'Deploying'
+            }
+        }
+    }
+}
+```
 
 ### 3.2.3 Parallel\(并行\)
 
@@ -406,7 +648,7 @@ Declarative Pipeline的stages中可能包含多个嵌套的stage, 对相互不�
 
 ##### 样例
 
-```
+```groovy
 //Jenkinsfile (Declarative Pipeline)
 pipeline {
     agent any
@@ -456,7 +698,25 @@ script步骤中可以引用script Pipeline语句，并在Declarative Pipeline中
 
 ##### 样例
 
-![](/assets/import25.png)
+```groovy
+//Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+                script {
+                    def browsers = ['chrome', 'firefox']
+                    for (int i = 0; i < browsers.size(); ++i) {
+                        echo "Testing the ${browsers[i]} browser"
+                    }
+                }
+            }
+        }
+    }
+}
+```
 
 ## 3.3 Scripted Pipeline
 
@@ -464,13 +724,37 @@ Groovy脚本不一定适合所有使用者，因此Jenkins创建了Declarative P
 
 ### 3.3.1 流程控制
 
-pipeline脚本同其它脚本语言一样，从上至下顺序执行，它的流程控制取决于Groovy表达式，如if/else条件语句，举例如下：
+Pipeline脚本同其它脚本语言一样，从上至下顺序执行，它的流程控制取决于Groovy表达式，如if/else条件语句，举例如下：
 
-![](/assets/import26.png)
+```groovy
+//Jenkinsfile (Scripted Pipeline)
+node {
+    stage('Example') {
+        if (env.BRANCH_NAME == 'master') {
+            echo 'I only execute on the master branch'
+        } else {
+            echo 'I execute elsewhere'
+        }
+    }
+}
+```
 
-pipeline脚本流程控制的另一种方式是Groovy的异常处理机制。当任何一个步骤因各种原因而出现异常时，都必须在Groovy中使用try/catch/finally语句块进行处理，举例如下：
+Pipeline脚本流程控制的另一种方式是Groovy的异常处理机制。当任何一个步骤因各种原因而出现异常时，都必须在Groovy中使用try/catch/finally语句块进行处理，举例如下：
 
-![](/assets/import27.png)
+```groovy
+//Jenkinsfile (Scripted Pipeline)
+node {
+    stage('Example') {
+        try {
+            sh 'exit 1'
+        }
+        catch (exc) {
+            echo 'Something failed, I should sound the klaxons!'
+            throw
+        }
+    }
+}
+```
 
 ### 3.3.2 Steps
 
