@@ -1,15 +1,15 @@
 # Jenkins Pipeline实战：基于全开源工具链设计交付流水线
 
 ## 第一课 Jenkins Pipeline综述
-目标：掌握持续集成/持续交付/devops的整体知识体系，了解jenkins2.0特点并进行入门实践<br>
-1.持续集成/持续交付概述<br>
-2.Jenkins pipeline入门<br>
+目标：掌握持续交付/devops的整体知识体系，了解jenkins2.0特点并进行入门实践<br>
+1.持续交付/devops概述<br>
+2.Jenkins Pipeline入门<br>
 ## 第二课 Pipeline语法详解<br>
-目标：掌握pipeline的详细语法<br>
-1.Jenkins pipeline语法详解<br>
+目标：掌握Pipeline的详细语法<br>
+1.Jenkins Pipeline语法详解<br>
 2.项目实例和设计技巧<br>
-## 第三课 pipeline高级使用技巧<br>
-目标：掌握pipeline的高级使用技巧<br>
+## 第三课 Pipeline高级使用技巧<br>
+目标：掌握Pipeline的高级使用技巧<br>
 1.multiBranch pipeline<br>
 2.shared libraries<br>
 3.parallel stage<br>
