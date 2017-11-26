@@ -2,7 +2,7 @@
 
 * [课程摘要](README.md)
 * [第1章 持续集成&持续交付概念](chapter1.md)
-* [第2章    pipeline之快速入门](di-2-zhang-pipeline-zhi-kuai-su-ru-men.md)
+* [第2章    Pipeline之快速入门](di-2-zhang-pipeline-zhi-kuai-su-ru-men.md)
 * [第3章    Pipeline 之语法详解](di-3-zhang-pipeline-zhi-yu-fa-xiang-jie.md)
 * [第4章    Pipeline之MultiBranch Pipeline](di-4-zhang-pipeline-shi-yong-zhi-xiang-mu-yang-li.md)
 * [第5章    Pipeline之Shared Libraries](di-5-zhang-pipeline-zhi-shared-libraries.md)
