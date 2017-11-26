@@ -1,6 +1,6 @@
 # 第2章 Pipeline之快速入门
 
-### 什么是pipeline {#什么是pipeline}
+### 什么是Pipeline {#什么是pipeline}
 
 先介绍下什么是Jenkins 2.0，Jenkins 2.0的精髓是Pipeline as Code，是帮助Jenkins实现CI到CD转变的重要角色。什么是Pipeline，简单来说，就是一套运行于Jenkins上的工作流框架，将原本独立运行于单个或者多个节点的任务连接起来，实现单个任务难以完成的复杂发布流程。Pipeline的实现方式是一套Groovy DSL，任何发布流程都可以表述为一段Groovy脚本，并且Jenkins支持从代码库直接读取脚本，从而实现了Pipeline as Code的理念。  
 Pipeline的几个基本概念：  

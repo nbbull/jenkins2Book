@@ -17,18 +17,18 @@
 ```groovy
 pipeline { 
 /* insert Declarative Pipeline here */ 
-	}
+    }
 ```
 
 Declarative Pipeline遵循与Groovy相同的语法规则，但有以下几点例外：
 
-lPipeline的顶层必须是块，具体来说就是：pipeline { }。
+* Pipeline的顶层必须是块，具体来说就是：pipeline { }。
 
-l不用分号作为语句分隔符，每个声明必须独立一行。
+* 不用分号作为语句分隔符，每个声明必须独立一行。
 
-l块里只能包含Sections（章节）、Directives（指令）、 Steps（步骤）或赋值语句。
+* 块里只能包含Sections（章节）、Directives（指令）、 Steps（步骤）或赋值语句。
 
-l属性引用以无参方法的方式调用。例如，输入被视为input（）。
+* 属性引用以无参方法的方式调用。例如，输入被视为input（）。
 
 ### 3.2.1 Sections（章节）
 
@@ -126,7 +126,6 @@ pipeline {
         }
     }
 }
-
 ```
 
 **①**使用‘maven:3-alpine’的镜像创建容器，执行pipeline的所有步骤。
@@ -152,7 +151,6 @@ pipeline {
         }
     }
 }
-
 ```
 
 **①**agent none在Pipeline顶层定义，表示将不会为整个Pipeline运行分配全局agent，每个stage需自己设置agent。
@@ -244,7 +242,6 @@ pipeline {
         }
     }
 }
-
 ```
 
 **①**stages章节通常跟随在agent,options等指令后面。
@@ -272,7 +269,6 @@ pipeline {
         }
     }
 }
-
 ```
 
 **① steps章节必须包括一个或多个step。**
@@ -313,7 +309,6 @@ pipeline {
         }
     }
 }
-
 ```
 
 **①**environment指令放在pipeline顶级块中，将适用pipeline所有步骤。
@@ -547,7 +542,6 @@ pipeline {
         }
     }
 }
-
 ```
 
 **①**调用的tool必须被预置在Jenkins中，可通过**Manage Jenkins**→**Global Tool Configuration配置。**
@@ -611,7 +605,6 @@ pipeline {
         }
     }
 }
-
 ```
 
 ```groovy
