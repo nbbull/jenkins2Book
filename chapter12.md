@@ -70,7 +70,7 @@ JMETER_ROOT_PATH=/root/.bzt/jmeter-taurus/3.2/bin/
 JMETER_FILE_NAME=search.jmx
 $JMETER_ROOT_PATH/jmeter -n -t ${WORKSPACE}/$JMETER_FILE_NAME -l aggregate_report.jtl -e -o ${WORKSPACE}/report/ --jmeterproperty threadCount=${threadCount} --jmeterproperty loopCount=${loopCount} --jmeterproperty testID=${testID}
 
-sshpass -p lx123321$ scp -r root@192.168.3.99:/root/nmon/result/${testID}.nmon ./
+sshpass -p ****** scp -r root@192.168.3.99:/root/nmon/result/${testID}.nmon ./
 mv ${WORKSPACE}/charts/*.* ${WORKSPACE}/
 chmod +x ${WORKSPACE}/nmon2html.sh 
 java -jar ./rem.jar -r ${testID} $JMETER_FILE_NAME ${threadCount} ${WORKSPACE}/report ${WORKSPACE}/${testID}.nmon
