@@ -56,31 +56,26 @@ git地址
 
 * 并发数量
 * 循环次数
-* testID，本次测试记录ID，取当前时间，毫秒级（
-  获得自1970年1月1日00:00:00 GMT开始到现在所表示的毫秒数
-  ）。
+* testID，本次测试记录ID，取当前时间，毫秒级（获得自1970年1月1日00:00:00 GMT开始到现在所表示的毫秒数）。
 
 #### git获取jmeter脚本
 
 #### 执行测试
 
 ```shell
-
 rm -f ${WORKSPACE}/150*
 rm -rf ${WORKSPACE}/aggregate_report.jtl
 rm -rf ${WORKSPACE}/report/
 JMETER_ROOT_PATH=/root/.bzt/jmeter-taurus/3.2/bin/
 JMETER_FILE_NAME=search.jmx
 $JMETER_ROOT_PATH/jmeter -n -t ${WORKSPACE}/$JMETER_FILE_NAME -l aggregate_report.jtl -e -o ${WORKSPACE}/report/ --jmeterproperty threadCount=${threadCount} --jmeterproperty loopCount=${loopCount} --jmeterproperty testID=${testID}
- 
+
 sshpass -p lx123321$ scp -r root@192.168.3.99:/root/nmon/result/${testID}.nmon ./
 mv ${WORKSPACE}/charts/*.* ${WORKSPACE}/
 chmod +x ${WORKSPACE}/nmon2html.sh 
 java -jar ./rem.jar -r ${testID} $JMETER_FILE_NAME ${threadCount} ${WORKSPACE}/report ${WORKSPACE}/${testID}.nmon
 tar -zcvf ${testID}.tar.gz ${WORKSPACE}/report/ ${WORKSPACE}/${testID}.nmon ${WORKSPACE}/${testID}.html
 ```
-
-
 
 
 
