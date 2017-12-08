@@ -7,7 +7,6 @@
 * [第4章    Pipeline 之语法详解](chapter03.md)
 * [第5章    Pipeline之MultiBranch Pipeline](chapter04.md)
 * [第6章    Pipeline之Shared Libraries](chapter05.md)
-* [第6章    Pipeline之项目样例](chapter06.md)
 * [第7章    代码静态检查](chapter07.md)
 * [第8章    单元测试和覆盖率统计](chapter08.md)
 * [第9章    接口自动化测试](chapter09.md)
@@ -17,4 +16,5 @@
 * [第13章    分级部署和发布](chapter13.md)
 * [第14章    Pipeline的高可用设计](chapter14.md)
 * [第15章    线上监控设计](chapter15.md)
+* [第16章    项目实战](chapter06.md)
 
