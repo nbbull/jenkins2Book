@@ -15,6 +15,6 @@
 * [第12章    性能自动化测试](chapter12.md)
 * [第13章    分级部署和发布](chapter13.md)
 * [第14章    线上监控设计](chapter15.md)
-* [第15章    Pipeline的高可用设计](chapter14.md)
+* [第15章    Jenkins的高可用设计](chapter14.md)
 * [第16章    项目实战](chapter06.md)
 
