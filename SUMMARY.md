@@ -2,8 +2,8 @@
 
 * [课程摘要](README.md)
 * [第1章    持续集成&持续交付概念](chapter01.md)
-* [第2章    Groovy基础](chapter01/groovyji-chu.md)
-* [第3章    Pipeline之快速入门](chapter02.md)
+* [第2章    Pipeline之快速入门](chapter02.md)
+* [第3章    Groovy基础](chapter01/groovyji-chu.md)
 * [第4章    Pipeline 之语法详解](chapter03.md)
 * [第5章    Pipeline之MultiBranch Pipeline](chapter04.md)
 * [第6章    Pipeline之Shared Libraries](chapter05.md)
