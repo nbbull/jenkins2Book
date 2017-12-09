@@ -10,14 +10,15 @@
 目标：掌握Pipeline的详细语法<br>
 4.Jenkins Pipeline语法详解<br>
 5.项目实例和设计技巧<br>
-## 第二部分 Jenkins Pipeline高级应用
+## 第二部分 Jenkins Pipeline进阶
 ### 第3课 Pipeline高级使用技巧<br>
 目标：掌握Pipeline的高级使用技巧<br>
 1.multiBranch pipeline<br>
 2.shared libraries<br>
 3.parallel stage<br>
 4.项目实战<br>
-## 第四课 编码环节的交付流水线设计方法<br>
+## 第三部分 使用Jenkins Pipeline设计交付流水线
+## 第4课 编码环节的交付流水线设计方法<br>
 目标：掌握代码环节的交付流水线设计方法<br>
 1.git webhook<br>
 2.代码检查<br>
@@ -25,13 +26,13 @@
 4.代码覆盖率统计<br>
 5.部署和发布<br>
 6.项目实战<br>
-## 第五课 集成测环节的交付流水线设计方法<br>
+## 第5课 集成测环节的交付流水线设计方法<br>
 目标：掌握集成测试环节的交付流水线设计方法<br>
 1.接口自动化测试方法<br>
 2.UI层自动化测试方法<br>
 3.接口/UI测试与pipeline集成设计<br>
 4.项目实战<br>
-## 第六课 专项测试环节的交付流水线设计方法<br>
+## 第6课 专项测试环节的交付流水线设计方法<br>
 目标：掌握专项测试环节的交付流水线设计方法<br>
 1.安全测试<br>
 2.性能测试<br>
