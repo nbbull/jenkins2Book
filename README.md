@@ -16,9 +16,10 @@
 1.multiBranch pipeline<br>
 2.shared libraries<br>
 3.parallel stage<br>
-4.项目实战<br>
+4.高可用设计
+5.项目实战<br>
 ## 第三部分 设计交付流水线
-### 第4课 编码环节的交付流水线设计方法<br>
+### 第4课 开发环节的交付流水线设计方法<br>
 目标：掌握代码环节的交付流水线设计方法<br>
 1.git webhook<br>
 2.代码检查<br>
@@ -43,5 +44,4 @@
 2.自动打包分发<br>
 3.线上监控<br>
 4.质效度量<br>
-### 第8课 Jenking高可用设计<br>
-1.Jenking高可用设计
+## 第四部分 研发协同平台的设计和开发<br>
