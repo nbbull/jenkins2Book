@@ -17,7 +17,7 @@
 2.shared libraries<br>
 3.parallel stage<br>
 4.项目实战<br>
-## 第三部分 使用Jenkins Pipeline设计交付流水线
+## 第三部分 设计交付流水线
 ### 第4课 编码环节的交付流水线设计方法<br>
 目标：掌握代码环节的交付流水线设计方法<br>
 1.git webhook<br>
