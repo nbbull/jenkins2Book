@@ -9,8 +9,8 @@
 4.BlueOcean
 ### 第2课 Pipeline语法详解<br>
 目标：掌握Pipeline的详细语法
-4.Jenkins Pipeline语法详解
-5.项目实例和设计技巧
+5.Jenkins Pipeline语法详解
+6.项目实例和设计技巧
 ## 第二部分 Jenkins Pipeline高级
 ### 第3课 Pipeline高级使用技巧<br>
 目标：掌握Pipeline的高级使用技巧
