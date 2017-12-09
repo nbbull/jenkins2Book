@@ -6,6 +6,7 @@
 1.持续交付/devops概述
 2.Jenkins Pipeline入门
 3.Groovy基础　
+4.BlueOcean
 ### 第2课 Pipeline语法详解<br>
 目标：掌握Pipeline的详细语法
 4.Jenkins Pipeline语法详解
