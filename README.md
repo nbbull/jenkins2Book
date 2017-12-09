@@ -3,13 +3,13 @@
 ## 第一部分 认识Jenkins Pipeline
 ### 第1课 Jenkins Pipeline简介
 目标：掌握持续交付/devops的整体知识体系，了解jenkins2.0特点并进行入门实践
-第1章.持续交付/devops概述
-第2章.Jenkins Pipeline入门
-第3章.Groovy基础　
+1.持续交付/devops概述
+2.Jenkins Pipeline入门
+3.Groovy基础　
 ### 第2课 Pipeline语法详解<br>
 目标：掌握Pipeline的详细语法
-第4章.Jenkins Pipeline语法详解
-补充：项目实例和设计技巧
+1.Jenkins Pipeline语法详解
+2.项目实例和设计技巧_
 ## 第二部分 Jenkins Pipeline高级
 ### 第3课 Pipeline高级使用技巧<br>
 目标：掌握Pipeline的高级使用技巧
