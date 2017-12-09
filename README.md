@@ -9,7 +9,7 @@
 ### 第2课 Pipeline语法详解<br>
 目标：掌握Pipeline的详细语法
 1.Jenkins Pipeline语法详解
-2.项目实例和设计技巧_
+2.项目实例
 ## 第二部分 Jenkins Pipeline高级
 ### 第3课 Pipeline高级使用技巧<br>
 目标：掌握Pipeline的高级使用技巧
