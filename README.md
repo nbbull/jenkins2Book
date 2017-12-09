@@ -16,7 +16,7 @@
 1.multiBranch pipeline
 2.shared libraries
 3.parallel stage
-4.高可用设计
+4.Jenkins高可用设计
 5.BlueOcean
 6.项目实战<br>
 ## 第三部分 设计交付流水线
