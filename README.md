@@ -9,8 +9,7 @@
 ### 第2课 Pipeline语法详解<br>
 目标：掌握Pipeline的详细语法
 4.Jenkins Pipeline语法详解
-5.BlueOcean
-6.项目实例和设计技巧
+5.项目实例和设计技巧
 ## 第二部分 Jenkins Pipeline高级
 ### 第3课 Pipeline高级使用技巧<br>
 目标：掌握Pipeline的高级使用技巧
@@ -18,7 +17,8 @@
 2.shared libraries
 3.parallel stage
 4.高可用设计
-5.项目实战<br>
+5.BlueOcean
+6.项目实战<br>
 ## 第三部分 设计交付流水线
 ### 第4课 开发环节的交付流水线设计方法<br>
 目标：掌握代码环节的交付流水线设计方法<br>
