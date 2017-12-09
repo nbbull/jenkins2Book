@@ -11,7 +11,7 @@
 4.Jenkins Pipeline语法详解<br>
 5.项目实例和设计技巧<br>
 ## 第二部分 Jenkins Pipeline高级应用
-### 第三课 Pipeline高级使用技巧<br>
+### 第3课 Pipeline高级使用技巧<br>
 目标：掌握Pipeline的高级使用技巧<br>
 1.multiBranch pipeline<br>
 2.shared libraries<br>
