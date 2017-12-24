@@ -65,9 +65,5 @@ PARAMS
 currentBuild  
 可获取当前正在执行的Pipeline job的信息，例如属性currentBuild.result，currentBuild.displayName等等
 
-引用官方文档：[https://jenkins.io/doc/book/pipeline/getting-started/](https://jenkins.io/doc/book/pipeline/getting-started/)  
-Groovy语法及入门：  
-[Groovy入门之语法和变量定义](http://www.sunnyang.com/521.html)  
-[Groovy进阶之函数、闭包和类](http://www.sunnyang.com/522.html)  
-[精通 Groovy](http://www.ibm.com/developerworks/cn/education/java/j-groovy/j-groovy.html#ibm-pcon)
+引用官方文档：[https://jenkins.io/doc/book/pipeline/getting-started/](https://jenkins.io/doc/book/pipeline/getting-started/)
 
