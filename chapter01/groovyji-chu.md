@@ -80,7 +80,7 @@ Groovy中，方法不需要return来返回值。
 
 Groovy中方法调用可以省略（）（构造函数除外）。
 
-## 二、Groovy初探
+## 二、Groovy基础语法
 
 #### 2.1 Groovy和Java对比
 
